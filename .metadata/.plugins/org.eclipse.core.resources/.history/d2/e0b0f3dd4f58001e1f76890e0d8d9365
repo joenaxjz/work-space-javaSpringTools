@@ -1,0 +1,24 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Demo Page</title>
+	
+	<link th:href="@{/css/style.css}" rel="stylesheet">
+</head>
+
+<body>
+	<h3>Index</h3>
+	ID: <span th:text="${id}"></span>
+	<br>
+	Username: <th:block th:text="${username}"></th:block>
+	<br>
+	<p th:text=" 'Price: ' + ${price}"></p>
+	<p th:text="${status ? 'show' : 'hide'}"></p>
+	<img th:src="@{/images/pic1.jpg}" width="70" height="100"></img>
+	<br>
+	<br>
+	<img th:src="@{'/images/' + ${photo}}" th:attr="width=${width}, height=${height}"></img>
+
+</body>
+
+</html>
