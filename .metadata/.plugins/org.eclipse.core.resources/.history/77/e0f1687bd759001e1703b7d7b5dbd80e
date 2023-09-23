@@ -1,0 +1,20 @@
+package com.demo.services;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public class RectangleServiceImpl implements RectangleService {
+
+	@Override
+	public double area(double a, double b) {
+		// TODO Auto-generated method stub
+		return a*b;
+	}
+
+	@Override
+	public double perimeter(double a, double b) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}

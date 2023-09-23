@@ -1,0 +1,10 @@
+package com.demo.services;
+
+public class DemoServiceImpl implements DemoService {
+
+	@Override
+	public String hello() {
+		return "hi";
+	}
+
+}

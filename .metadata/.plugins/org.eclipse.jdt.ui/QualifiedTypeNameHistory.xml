@@ -6,6 +6,17 @@
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestParam"/>
     <fullyQualifiedTypeName name="org.springframework.ui.ModelMap"/>
+    <fullyQualifiedTypeName name="com.demo.services.DemoService"/>
+    <fullyQualifiedTypeName name="com.demo.services.DemoServiceImpl"/>
+    <fullyQualifiedTypeName name="com.demo.services.CalculateServiceImpl"/>
+    <fullyQualifiedTypeName name="com.demo.services.CalculateService"/>
+    <fullyQualifiedTypeName name="com.demo.services.RectangleService"/>
+    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+    <fullyQualifiedTypeName name="com.demo.entities.Product"/>
+    <fullyQualifiedTypeName name="java.util.Date"/>
+    <fullyQualifiedTypeName name="com.demo.services.ProductService"/>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
     <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="com.demo.entities.Account"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
 </qualifiedTypeNameHistroy>

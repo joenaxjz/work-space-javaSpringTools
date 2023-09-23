@@ -1,0 +1,14 @@
+package com.demo.services;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public class AccountServiceImpl implements AccountService {
+
+	@Override
+	public boolean login() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+}

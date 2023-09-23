@@ -1,0 +1,16 @@
+package com.demo.services;
+
+import org.springframework.stereotype.Service;
+
+import com.demo.entities.Product;
+
+@Service
+public class ProductServiceImpl implements ProductService {
+
+	@Override
+	public Product find() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

@@ -1,0 +1,17 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Demo 2 Page</title>
+</head>
+
+<body>
+
+	<h3>Index demo 2</h3>
+
+	Result1: <th:block th:text="${rs1}"></th:block>
+	<br>
+	Result2: <th:block th:text="${rs2}"></th:block>
+
+</body>
+
+</html>

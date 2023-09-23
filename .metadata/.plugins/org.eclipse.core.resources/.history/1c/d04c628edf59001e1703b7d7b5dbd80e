@@ -1,0 +1,13 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Demo 3 Page</title>
+</head>
+
+<body>
+
+	<h3>Index demo 3</h3>
+
+</body>
+
+</html>
