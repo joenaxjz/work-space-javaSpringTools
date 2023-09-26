@@ -1,0 +1,33 @@
+	<script th:src="@{/js/ckeditor/ckeditor.js}"></script>
+
+<h1>Account Register</h1>
+<form method="post" th:action="@{/account/register}">
+	<table>
+		<tr>
+			<td>Username</td>
+			<td>
+				<input type="text" th:field="${account.username}">
+			</td>
+		</tr>
+		<tr>
+			<td>Password</td>
+			<td>
+				<input type="password" th:field="${account.password}">
+			</td>
+		</tr>
+			<tr>
+			<td>Description</td>
+			<td>
+				<textarea rows="5" cols="20" th:field="${account.description}"></textarea>
+
+			</td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td>
+				<input type="submit" value="REGISTER">
+			</td>
+		</tr>
+	</table>
+
+</form>

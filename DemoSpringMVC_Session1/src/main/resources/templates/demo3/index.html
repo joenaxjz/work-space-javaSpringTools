@@ -55,6 +55,20 @@
 		<br>
 		<input type="submit" value="UPDATE">
 	</form>
+	
+	Upload
+	<form method="post" th:action="@{/demo3/upload}" enctype="multipart/form-data">
+		Photo <input type="file" name="file">
+		<br>
+		<input type="submit" value="Upload">
+	</form>
+	
+	Uploads
+	<form method="post" th:action="@{/demo3/uploads}" enctype="multipart/form-data">
+		Photo <input type="file" name="files" multiple="multiple">
+		<br>
+		<input type="submit" value="Upload">
+	</form>
 </body>
 
 </html>

@@ -1,0 +1,10 @@
+<h1>Account Register</h1>
+<form method="post" th:action="@{/account/register}">
+	<table>
+		<tr>
+			<td></td>
+			<td></td>
+		</tr>
+	</table>
+
+</form>

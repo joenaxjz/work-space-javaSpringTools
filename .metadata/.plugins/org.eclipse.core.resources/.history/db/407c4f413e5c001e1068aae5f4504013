@@ -1,0 +1,18 @@
+package com.demo.services;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import com.demo.entities.Language;
+
+@Service
+public class LanguageServiceImpl implements LanguageService {
+
+	@Override
+	public List<Language> findAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

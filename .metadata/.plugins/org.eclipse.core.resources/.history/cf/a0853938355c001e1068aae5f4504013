@@ -1,0 +1,74 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Demo 3 Page</title>
+</head>
+
+<body>
+
+	<h3>Index demo 3</h3>
+
+	Search By Keyword
+	<form method="get" th:action="@{/demo3/searchByKeyword}">
+		Keyword <input type="text" name="keyword">
+		<br>
+		<input type="submit" value="Search">
+
+	</form>
+
+	Search By Price
+	<form method="get" th:action="@{/demo3/searchByPrice}">
+		Min <input type="text" name="min">
+		<br>
+		Max <input type="text" name="max">
+		<br>
+		<input type="submit" value="Search">
+	</form>
+
+	Login
+	<form method="post" th:action="@{/demo3/login}">
+		Username <input type="text" name="username">
+		<br>
+		Password <input type="password" name="password">
+		<br>
+		<input type="submit" value="LOGIN">
+	</form>
+	
+	Update 1
+	<form method="post" th:action="@{/demo3/update1}">
+		Email 1 <input type="text" name="emails">
+		<br>
+		Email 2 <input type="text" name="emails">
+		<br>
+		Email 3 <input type="text" name="emails">
+		<br>
+		<input type="submit" value="UPDATE">
+	</form>
+	
+	Update 2
+	<form method="post" th:action="@{/demo3/update2}">
+		Quan 1 <input type="text" name="quans">
+		<br>
+		Quan 2 <input type="text" name="quans">
+		<br>
+		Quan 3 <input type="text" name="quans">
+		<br>
+		<input type="submit" value="UPDATE">
+	</form>
+	
+	Upload
+	<form method="post" th:action="@{/demo3/upload}" enctype="multipart/form-data">
+		Photo <input type="file" name="file">
+		<br>
+		<input type="submit" value="Upload">
+	</form>
+	
+	Uploads
+	<form method="post" th:action="@{/demo3/upload}" enctype="multipart/form-data">
+		Photo <input type="file" name="file" multiple="multiple">
+		<br>
+		<input type="submit" value="Upload">
+	</form>
+</body>
+
+</html>

@@ -14,10 +14,10 @@ public class AccountServiceImpl implements AccountService {
 	
 	public AccountServiceImpl() {
 		accounts = new ArrayList<Account>();
-		accounts.add(new Account (1, "acc1", "123123", "doan tuan anh"));
-		accounts.add(new Account (2, "acc2", "123123", "thu phuong"));
-		accounts.add(new Account (3, "acc3", "123123", "acc 11111"));
-		accounts.add(new Account (4, "acc4", "123123", "tu do"));
+		accounts.add(new Account (1, "acc1", "123123", "doan tuan anh", ""));
+		accounts.add(new Account (2, "acc2", "123123", "thu phuong", ""));
+		accounts.add(new Account (3, "acc3", "123123", "acc 11111", ""));
+		accounts.add(new Account (4, "acc4", "123123", "tu do", ""));
 
 	}
 	
