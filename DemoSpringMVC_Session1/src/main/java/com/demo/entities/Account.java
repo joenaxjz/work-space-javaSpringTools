@@ -13,7 +13,29 @@ public class Account {
 	private String description;
 	private String details;
 	private String gender;
+	private int cert;
+	private int role;
+	private Address address;
 	
+	
+	public Address getAddress() {
+		return address;
+	}
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+	public int getRole() {
+		return role;
+	}
+	public void setRole(int role) {
+		this.role = role;
+	}
+	public int getCert() {
+		return cert;
+	}
+	public void setCert(int cert) {
+		this.cert = cert;
+	}
 	public String getGender() {
 		return gender;
 	}

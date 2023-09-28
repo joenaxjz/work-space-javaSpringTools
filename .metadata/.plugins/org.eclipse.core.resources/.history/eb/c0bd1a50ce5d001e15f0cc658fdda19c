@@ -1,0 +1,5 @@
+package com.demo.configurations;
+
+public class ValidationConfiguration {
+
+}
