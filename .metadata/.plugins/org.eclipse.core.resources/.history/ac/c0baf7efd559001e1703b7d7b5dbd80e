@@ -1,6 +1,0 @@
-package com.demo.services;
-
-public interface DemoService {
-	public String hello();
-	
-}

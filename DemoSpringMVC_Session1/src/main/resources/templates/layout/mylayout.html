@@ -1,0 +1,22 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Demo 3 Page</title>
+</head>
+
+<body>
+	
+	<h3>MY LAYOUT</h3>
+	<ul class="mymenu">
+		<li>Menu 1</li>
+		<li>Menu 2</li>
+		<li>Menu 3</li>
+		<li>Menu 4</li>
+	</ul>
+
+	<div th:fragment="fragment2(fullname)">
+		Hi <th:block th:text="${fullname}"></th:block>
+	</div>
+</body>
+
+</html>

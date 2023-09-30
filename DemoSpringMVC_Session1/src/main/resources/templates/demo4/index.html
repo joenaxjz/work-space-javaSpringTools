@@ -1,0 +1,47 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Demo 3 Page</title>
+</head>
+
+<body>
+
+	<h3>Index demo 4</h3>
+
+	<span id="span1">Span 1</span>
+
+	<p class="mytext">P 1</p>
+	<p class="mytext">P 2</p>
+	<p class="mytext">P 3</p>
+	<p class="mytext">P 4</p>
+	<img th:src="@{/images/pic1.jpg}">
+
+	<div th:fragment="fragment1">Hi Fragment</div>
+	<div th:fragment="fragment2(fullname)">Hi <th:block th:text="${fullname}"></th:block>
+	</div>
+	<div th:fragment="addressInfo(street, ward, district)">
+		Street <th:block th:text="${street}"></th:block> <br>
+		Ward <th:block th:text="${ward}"></th:block> <br>
+		District <th:block th:text="${district}"></th:block>
+	</div>
+
+
+	<div th:replace="this :: #span1 "></div>
+	<div th:insert="this :: #span1"></div>
+
+	<div th:insert="this :: .mytext"></div>
+	<div th:insert="this :: img"></div>
+
+	<DIV TH:INSERT="layout/mylayout :: h3"></DIV>
+	<DIV TH:INSERT="layout/mylayout :: .mymenu"></DIV>
+	<DIV TH:INSERT="layout/mylayout :: fragment2('tuanan')"></DIV>
+
+
+	<div th:insert="this :: fragment1"></div>
+	<div th:insert="this :: fragment2('Tuan anh')"></div>
+	<div th:insert="this :: addressInfo('Str 1', 'ward 1', 'district 1')"></div>
+
+
+</body>
+
+</html>
