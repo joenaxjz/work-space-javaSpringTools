@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 
 @Controller
-@RequestMapping({"home", ""}) //multi-link
+@RequestMapping({"home", "/"}) //multi-link
 public class HomeController {
 	
 	

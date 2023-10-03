@@ -1,0 +1,79 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Demo 3 Page</title>
+	<script th:src="@{/js/jquery-3.7.1.min.js}"></script>
+	<script>
+
+		$(document).ready(function () {
+			$('#buttonDemo').click(function () {
+				$.ajax({
+					type: 'GET',
+					url: '/ajax/ajax1',
+					success: function (data) {
+						$('#rs1').html(data);
+					}
+				})
+			});
+			
+				$('#buttonDemo2').click(function () {
+					var fullName = $('#fullName').val();
+				$.ajax({
+					type: 'GET',
+					data: {
+						fullName: fullName
+					},
+					url: '/ajax/ajax2',
+					success: function (data) {
+						$('#rs2').html(data);
+					}
+				})
+			});
+			
+			$('#buttonDemo3').click(function () {
+					var username = $('#username').val();
+					var password = $('#password').val();
+				$.ajax({
+					type: 'POST',
+					data: {
+						username: username,
+						password: password
+					},
+					url: '/ajax/login',
+					success: function (data) {
+						$('#rs3').html(data);
+					}
+				})
+			})
+		})
+	</script>
+</head>
+
+<body>
+
+	<h3>1</h3>
+	<input type="button" value="Click Me" id="buttonDemo">
+
+	<br>
+	<span id="rs1"></span>
+	
+	<h3>2</h3>
+	Full Name <input type="text" id="fullName">
+	<input type="button" value="Click Me" id="buttonDemo2">
+
+	<br>
+	<span id="rs2"></span>
+	
+	<h3>3</h3>
+	Username <input type="text" id="username">
+	<br>
+	Password <input type="password" id="password">
+	<br>
+	<input type="button" value="Log in" id="buttonDemo3">
+
+	<br>
+	<span id="rs3"></span>
+
+</body>
+
+</html>

@@ -27,14 +27,14 @@ import com.demo.services.ProductService;
 import com.demo.services.RectangleService;
 
 @Controller
-@RequestMapping({"demo4"}) //multi-link
+@RequestMapping({"demo5"}) //multi-link
 public class demo4Controller {
 	
 	
 	@RequestMapping(value = { "index", "" }, method = RequestMethod.GET)
 	public String index(ModelMap modelMap) {
 	
-		return "demo4/index";
+		return "demo5/index";
 	}
 	
 	
