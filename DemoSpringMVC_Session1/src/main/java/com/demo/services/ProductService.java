@@ -9,5 +9,7 @@ public interface ProductService {
 	
 	public List<Product> findAll();
 	
+	public List<Product> findByKeyword(String keyword);
+
 	public Product findById(int id);
 }

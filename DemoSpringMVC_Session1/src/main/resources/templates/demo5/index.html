@@ -15,9 +15,9 @@
 					}
 				})
 			});
-			
-				$('#buttonDemo2').click(function () {
-					var fullName = $('#fullName').val();
+
+			$('#buttonDemo2').click(function () {
+				var fullName = $('#fullName').val();
 				$.ajax({
 					type: 'GET',
 					data: {
@@ -29,10 +29,10 @@
 					}
 				})
 			});
-			
+
 			$('#buttonDemo3').click(function () {
-					var username = $('#username').val();
-					var password = $('#password').val();
+				var username = $('#username').val();
+				var password = $('#password').val();
 				$.ajax({
 					type: 'POST',
 					data: {
@@ -44,8 +44,62 @@
 						$('#rs3').html(data);
 					}
 				})
-			})
+			});
+
+			$('#btnFind').click(function () {
+				$.ajax({
+					type: 'GET',
+					url: '/ajax/find',
+					success: function (product) {
+						var s = 'id: ' + product.id;
+						s += '<br>name: ' + product.name;
+						s += '<br><img src="/images/' + product.photo + '" width="70px" heigth = "100px"';
+						s += '<br>price: ' + product.price;
+						s += '<br>created: ' + product.created;
+						$('#rs4').html(s);
+					}
+				})
+			});
+
+
+			$('#btnFindAll').click(function () {
+				$.ajax({
+					type: 'GET',
+					url: '/ajax/findAll',
+					success: function (products) {
+						var s = '';
+						for (var i = 0; i < products.length; i++) {
+							s += '<br>id: ' + products[i].id;
+							s += '<br>name: ' + products[i].name;
+							s += '<br><img src="/images/' + products[i].photo + '" width="70px" heigth = "100px" <br> ';
+							s += 'price: ' + products[i].price;
+							s += '<br>created: ' + products[i].created;
+						}
+						$('#rs5').html(s);
+					}
+				})
+			});
+			
+			$('#country').change(function() {
+				var countryId = $(this).val();
+				$.ajax({
+					type: 'GET',
+					url: '/ajax/findCountryById',
+					data: {
+						id: countryId
+					},
+					success: function(cities){
+						var s = '';
+						for(var i = 0; i < cities.length; i++){
+							s += '<option value="' + cities[i].id + '">' + cities[i].name +' </option>';
+						}
+						$('#city').html(s)
+					}
+				});
+			});
 		})
+
+
 	</script>
 </head>
 
@@ -53,26 +107,51 @@
 
 	<h3>1</h3>
 	<input type="button" value="Click Me" id="buttonDemo">
-
 	<br>
 	<span id="rs1"></span>
-	
+
+
 	<h3>2</h3>
 	Full Name <input type="text" id="fullName">
 	<input type="button" value="Click Me" id="buttonDemo2">
-
 	<br>
 	<span id="rs2"></span>
-	
+
+
 	<h3>3</h3>
 	Username <input type="text" id="username">
 	<br>
 	Password <input type="password" id="password">
 	<br>
 	<input type="button" value="Log in" id="buttonDemo3">
-
 	<br>
 	<span id="rs3"></span>
+
+
+	<h3>4</h3>
+	<input type="button" value="Find" id="btnFind">
+	<br>
+	<span id="rs4"></span>
+
+
+	<h3>5</h3>
+	<input type="button" value="Find All" id="btnFindAll">
+	<br>
+	<span id="rs5"></span>
+
+
+	<h3>6</h3>
+
+	Country <select id="country">
+		<option  th:each="country : ${countries}" th:text="${country.name}" th:value="${country.id}"></option>
+	</select>
+
+	<br>
+	
+	City <select id="city">
+		
+	</select>
+
 
 </body>
 

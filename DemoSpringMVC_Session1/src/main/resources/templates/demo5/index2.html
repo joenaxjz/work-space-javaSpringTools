@@ -1,0 +1,76 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Index 2 Demo 5</title>
+	<script th:src="@{/js/jquery-3.7.1.min.js}"></script>
+	<script>
+
+		$(document).ready(function () {
+			$('#keyword').keyup(function () {
+				var keyword = $(this).val();
+
+				$.ajax({
+					type: 'GET',
+					url: '/ajax/searchByKeyword',
+					data: {
+						keyword: keyword
+					},
+					success: function (products) {
+						var s = '';
+						for (var i = 0; i < products.length; i++) {
+							s += '<tr>';
+							s += '<td>' + products[i].id + '</td>';
+							s += '<td>' + products[i].name + '</td>';
+							s += '<td><img src="/images/' + products[i].photo + '" width="70px" heigth = "100px" <br>' + '</td>';
+							s += '<td>' + products[i].price + '</td>';
+							s += '<td>' + products[i].created + '</td>';
+							s += '<td>' + products[i].category + '</td>';
+							s += '</tr>';
+						}
+						$('#productTable tbody').html(s)
+					}
+				});
+			})
+		})
+	</script>
+</head>
+
+<body>
+
+	<h3>Product List </h3>
+
+
+	<table border="1" id="productTable">
+		<thead>
+			<th>ID</th>
+			<th>Name
+				<br>
+				<input type="text" id="keyword" autocomplete="off">
+			</th>
+			<th>Photo</th>
+			<th>Price</th>
+			<th>Created</th>
+			<th>Category</th>
+		</thead>
+
+		<tbody>
+
+			<th:block th:each="product : ${products}">
+				<tr>
+					<td th:text="${product.id}"></td>
+					<td th:text="${product.name}"></td>
+					<td>
+						<img th:src="@{'/images/'+${product.photo}}" width="70" height="100"></img>
+					</td>
+					<td th:text="${product.price}"></td>
+					<td th:text="${#dates.format(product.created, 'dd/MM/yyyy')}"></td>
+					<td th:text="${product.category}"></td>
+			</th:block>
+		</tbody>
+
+	</table>
+
+
+</body>
+
+</html>

@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
     <fullyQualifiedTypeName name="org.springframework.stereotype.Controller"/>
-    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
     <fullyQualifiedTypeName name="org.springframework.ui.ModelMap"/>
     <fullyQualifiedTypeName name="com.demo.services.DemoService"/>
     <fullyQualifiedTypeName name="com.demo.services.DemoServiceImpl"/>
     <fullyQualifiedTypeName name="com.demo.services.CalculateServiceImpl"/>
     <fullyQualifiedTypeName name="com.demo.services.CalculateService"/>
     <fullyQualifiedTypeName name="com.demo.services.RectangleService"/>
-    <fullyQualifiedTypeName name="com.demo.entities.Product"/>
-    <fullyQualifiedTypeName name="com.demo.services.ProductService"/>
     <fullyQualifiedTypeName name="org.springframework.web.multipart.MultipartFile"/>
     <fullyQualifiedTypeName name="java.io.File"/>
     <fullyQualifiedTypeName name="org.springframework.core.io.ClassPathResource"/>
@@ -22,10 +19,7 @@
     <fullyQualifiedTypeName name="java.util.Date"/>
     <fullyQualifiedTypeName name="org.springframework.format.annotation.DateTimeFormat"/>
     <fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
-    <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="com.demo.entities.Language"/>
-    <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
-    <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="com.demo.services.LanguageService"/>
     <fullyQualifiedTypeName name="com.demo.entities.Cert"/>
     <fullyQualifiedTypeName name="com.demo.services.CertificateService"/>
@@ -55,4 +49,14 @@
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestParam"/>
     <fullyQualifiedTypeName name="com.demo.services.AccountService"/>
     <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+    <fullyQualifiedTypeName name="com.demo.services.ProductService"/>
+    <fullyQualifiedTypeName name="com.demo.entities.Product"/>
+    <fullyQualifiedTypeName name="com.fasterxml.jackson.annotation.JsonFormat"/>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="com.demo.entities.Country"/>
+    <fullyQualifiedTypeName name="com.demo.services.CountryService"/>
+    <fullyQualifiedTypeName name="com.demo.entities.City"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
 </qualifiedTypeNameHistroy>

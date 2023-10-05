@@ -21,6 +21,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.demo.helpers.FileHelper;
 import com.demo.services.CalculateService;
 import com.demo.services.CalculateServiceImpl;
+import com.demo.services.CountryService;
 import com.demo.services.DemoService;
 import com.demo.services.DemoServiceImpl;
 import com.demo.services.ProductService;
@@ -30,12 +31,23 @@ import com.demo.services.RectangleService;
 @RequestMapping({"demo5"}) //multi-link
 public class demo4Controller {
 	
+	@Autowired
+	private CountryService ctService;
+	
+	@Autowired
+	private ProductService productService;
 	
 	@RequestMapping(value = { "index", "" }, method = RequestMethod.GET)
 	public String index(ModelMap modelMap) {
-	
+		modelMap.put("countries", ctService.findAll());
 		return "demo5/index";
 	}
 	
+	
+	@RequestMapping(value = { "index2", "" }, method = RequestMethod.GET)
+	public String index2(ModelMap modelMap) {
+		modelMap.put("products", productService.findAll());
+		return "demo5/index2";
+	}
 	
 }
