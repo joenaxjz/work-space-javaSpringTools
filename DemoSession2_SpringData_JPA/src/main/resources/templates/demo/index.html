@@ -1,0 +1,21 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<h3>Index demo</h3>
+</head>
+
+<body>
+	<table border="1">
+		<tr>
+			<th>ID</th>
+			<th>NAME</th>
+		</tr>
+		<tr th:each="category : ${categories}">
+			
+			<td th:text="${category.id}"></td>
+			<td th:text="${category.name}"></td>
+		<tr>
+
+		</tr>
+	</table>
+</body>
