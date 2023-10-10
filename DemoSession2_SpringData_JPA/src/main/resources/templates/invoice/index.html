@@ -1,0 +1,29 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<h3>Index demo</h3>
+</head>
+
+<body>
+	<table border="1">
+		<tr>
+			<th>ID</th>
+			<th>Name</th>
+			<th>Created</th>
+			<th>Status</th>
+			<th>Payment</th>
+			<th>Account ID</th>
+		</tr>
+		<tr th:each="invoice : ${invoices}">
+
+			<td th:text="${invoice.id}"></td>
+			<td th:text="${invoice.name}"></td>
+			<td th:text="${#dates.format(invoice.created, 'dd/MM/yyyy')}"></td>
+			<td th:text="${invoice.status}"></td>
+			<td th:text="${invoice.payment}"></td>
+			<td th:text="${invoice.account.id}"></td>
+		<tr>
+
+		</tr>
+	</table>
+</body>

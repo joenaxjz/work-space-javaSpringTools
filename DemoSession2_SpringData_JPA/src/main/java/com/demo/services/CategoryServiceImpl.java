@@ -18,4 +18,32 @@ public class CategoryServiceImpl implements CategoryService {
 		return cateRepo.findAll();
 	}
 
+	@Override
+	public boolean save(Category category) {
+		try {
+			cateRepo.save(category);
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
+
+	@Override
+	public boolean delete(int id) {
+		try {
+			cateRepo.delete(find(id));
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
+
+	@Override
+	public Category find(int id) {
+		// TODO Auto-generated method stub
+		return cateRepo.findById(id).get();
+	}
+
 }

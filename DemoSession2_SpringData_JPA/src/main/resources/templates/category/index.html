@@ -1,0 +1,28 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<h3>Index demo</h3>
+</head>
+
+<body>
+	<th:block th:text="${msg}"></th:block>
+	<br>
+	<a th:href="@{/category/add}">Add</a>
+	<table border="1">
+		<tr>
+			<th>ID</th>
+			<th>NAME</th>
+			<th>ACtions</th>
+		</tr>
+		<tr th:each="category : ${categories}">
+
+			<td th:text="${category.id}"></td>
+			<td th:text="${category.name}"></td>
+			<td>
+				<a th:href="@{'/category/delete/' + ${category.id}}">Delete</a>
+			</td>
+		<tr>
+
+		</tr>
+	</table>
+</body>

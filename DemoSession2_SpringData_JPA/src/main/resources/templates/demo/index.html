@@ -5,13 +5,15 @@
 </head>
 
 <body>
+	<th:block th:text="${msg}"></th:block>
+
 	<table border="1">
 		<tr>
 			<th>ID</th>
 			<th>NAME</th>
 		</tr>
 		<tr th:each="category : ${categories}">
-			
+
 			<td th:text="${category.id}"></td>
 			<td th:text="${category.name}"></td>
 		<tr>

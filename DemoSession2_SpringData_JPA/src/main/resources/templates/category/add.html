@@ -1,0 +1,27 @@
+<html>
+
+<head>
+
+</head>
+
+<body>
+	<a th:href="@{/category/index}">Back</a>
+	<form method="post" th:action="@{/category/add}">
+		<table>
+			<tr>
+				<td>Name</td>
+				<td>
+					<input type="text" th:field="${category.name}">
+				</td>
+			</tr>
+			<tr>
+				<td>&nbsp;</td>
+				<td>
+					<input type="submit" value="ADD">
+				</td>
+			</tr>
+		</table>
+	</form>
+</body>
+
+</html>
