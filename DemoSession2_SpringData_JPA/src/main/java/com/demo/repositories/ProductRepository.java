@@ -67,6 +67,7 @@ public interface ProductRepository extends CrudRepository<Product, Integer> {
 	
 	@Query("select avg(price) from Product")
 	public double avgPrice();
+	
 }
 
 

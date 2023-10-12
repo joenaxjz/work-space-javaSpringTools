@@ -1,0 +1,81 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<script>
+		$(function () {
+			$("#dob").datepicker({
+				dateFormat: 'dd/mm/yy'
+			});
+		});
+	</script>
+</head>
+
+<body>
+	
+	<a th:href="@{/product/index}">Back</a>
+	<form method="post" th:action="@{/product/add}" enctype="multipart/form-data">
+		<table>
+			<tr>
+				<td>Name</td>
+				<td>
+					<input type="text" th:field="${product.name}">
+				</td>
+			</tr>
+
+			<tr>
+				<td>Price</td>
+				<td>
+					<input type="text" th:field="${product.price}">
+				</td>
+			</tr>
+
+			<tr>
+				<td>Quantity</td>
+				<td>
+					<input type="number" th:field="${product.quantity}">
+				</td>
+			</tr>
+			<tr>
+				<td>Status</td>
+				<td>
+					<input type="checkbox" th:field="${product.status}">
+				</td>
+			</tr>
+			<tr>
+				<td>Description</td>
+				<td>
+					<textarea rows="5" cols="20" th:field="${product.description}"></textarea>
+				</td>
+			</tr>
+			<tr>
+				<td>Photo</td>
+				<td>
+					<input type="file" name="file">
+				</td>
+			</tr>
+			<tr>
+				<td>Category</td>
+				<td>
+					<select th:field="${product.category}">
+						<option th:each="category : ${categories}" th:value="${category.id}" th:text="${category.name}"></option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>Created</td>
+				<td>
+					<input type="text" th:field="${product.created}" id="created">
+				</td>
+			</tr>
+
+			<tr>
+				<td>&nbsp;</td>
+				<td>
+					<input type="submit" value="ADD">
+				</td>
+			</tr>
+		</table>
+	</form>
+</body>
+
+</html>

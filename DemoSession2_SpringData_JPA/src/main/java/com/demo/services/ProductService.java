@@ -51,9 +51,9 @@ public interface ProductService {
 	
 	public double avgPrice();
 
-
-	
 	public long count2(boolean status);
+	
+	public List<Product> searchByKeyword(String keyword);
 
 
 }
