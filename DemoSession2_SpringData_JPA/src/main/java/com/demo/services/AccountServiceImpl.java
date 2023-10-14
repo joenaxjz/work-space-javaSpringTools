@@ -47,4 +47,16 @@ public class AccountServiceImpl implements AccountService {
 		return accountRepository.findById(id).get();
 	}
 
+	@Override
+	public Account login(String username, String password) {
+		// TODO Auto-generated method stub
+		return accountRepository.login(username, password, true);
+	}
+
+	@Override
+	public Account findByUsername(String username) {
+		// TODO Auto-generated method stub
+		return accountRepository.findByUsername(username);
+	}
+
 }

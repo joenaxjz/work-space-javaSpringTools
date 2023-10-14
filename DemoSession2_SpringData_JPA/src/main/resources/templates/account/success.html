@@ -1,0 +1,14 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	success
+</head>
+
+<body>
+	<th:block th:text="${msg}"></th:block>
+	<h1>Hello <th:block th:text="${session.username}"></th:block>
+	</h1>
+	<a th:href="@{/account/profile}">Profile</a>
+	<br>
+	<a th:href="@{/account/login}">LOG OUT</a>
+</body>

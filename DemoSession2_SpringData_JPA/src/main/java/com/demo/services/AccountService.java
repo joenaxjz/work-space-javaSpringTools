@@ -7,7 +7,8 @@ public interface AccountService {
 public Iterable<Account> findAll();
 	
 	public  boolean save(Account account);
-	
+	public Account login(String username, String password);
 	public  boolean delete(int id);
 	public  Account find(int  id);
+	public Account findByUsername(String username);
 }

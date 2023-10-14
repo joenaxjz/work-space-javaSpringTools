@@ -14,6 +14,11 @@ import com.demo.entities.Product;
 @Repository
 public interface AccountRepository extends CrudRepository<Account, Integer> {
 
+	@Query("from Account  where username = :username and password = :password and status = :status")
+	public Account login(@Param("username") String username, @Param("password") String password, @Param("status") boolean status);
+	
+	@Query("from Account  where username = :username")
+	public Account findByUsername(@Param("username") String username);
 }
 
 
