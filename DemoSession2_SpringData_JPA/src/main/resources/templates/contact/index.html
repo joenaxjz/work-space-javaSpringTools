@@ -1,0 +1,52 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<h3>Contact Page</h3>
+</head>
+
+<body>
+	<th:block th:text="${msg}"></th:block>
+	<br>
+	<form method="post" th:action="@{/contact/sendContact}">
+		<table>
+			<tr>
+				<th>Full Name</th>
+				<td>
+					<input type="text" th:field="${contact.fullName}" }>
+				</td>
+			</tr>
+			<tr>
+				<th>Email</th>
+				<td>
+					<input type="text" th:field="${contact.email}" }>
+				</td>
+			</tr>
+			<tr>
+				<th>Phone</th>
+				<td>
+					<input type="text" th:field="${contact.phone}" }>
+				</td>
+			</tr>
+			<tr>
+				<th>Subject</th>
+				<td>
+					<input type="text" th:field="${contact.subject}" }>
+				</td>
+			</tr>
+			<tr>
+				<th>Content</th>
+				<td>
+					<textarea th:field="${contact.content}" rows="5" cols="20">
+						
+					</textarea>
+				</td>
+			</tr>
+			<tr>
+				<th>&nbsp;</th>
+				<td>
+					<input type="submit" value="Send">
+				</td>
+			</tr>
+		</table>
+	</form>
+</body>

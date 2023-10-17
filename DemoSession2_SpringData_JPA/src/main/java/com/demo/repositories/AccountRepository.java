@@ -19,6 +19,9 @@ public interface AccountRepository extends CrudRepository<Account, Integer> {
 	
 	@Query("from Account  where username = :username")
 	public Account findByUsername(@Param("username") String username);
+	
+	@Query("from Account  where email = :email")
+	public Account findByEmail(@Param("email") String email);
 }
 
 

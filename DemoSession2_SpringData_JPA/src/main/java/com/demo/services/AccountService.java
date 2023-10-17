@@ -11,4 +11,6 @@ public Iterable<Account> findAll();
 	public  boolean delete(int id);
 	public  Account find(int  id);
 	public Account findByUsername(String username);
+	public Account findByEmail(String email);
+
 }

@@ -48,4 +48,19 @@ public class Contact {
 		this.content = content;
 	}
 
+	public Contact(String fullName, String email, String phone, String subject, String content) {
+		super();
+		this.fullName = fullName;
+		this.email = email;
+		this.phone = phone;
+		this.subject = subject;
+		this.content = content;
+	}
+
+	public Contact() {
+		super();
+	}
+	
+	
+
 }
