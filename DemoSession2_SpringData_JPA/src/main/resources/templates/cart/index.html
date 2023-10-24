@@ -1,0 +1,52 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head></head>
+
+<body>
+	<a th:href="@{/product/index}">Continue Shopping</a>
+	<h1>Cart</h1>
+	<form method="post" th:action="@{/cart/update}">
+		<table border="1">
+			<tr>
+				<th>Action</th>
+				<th>ID</th>
+				<th>Name</th>
+				<th>
+					Quantity
+					<th:block th:if="${cart != null && cart.size() > 0}">
+						|
+					<input type="submit" value="Update">
+					</th:block>
+					
+				</th>
+				<th>Price</th>
+				<th>Category Name</th>
+				<th>Photo</th>
+				<th>Sub Totals</th>
+			</tr>
+			<tr th:each="item, i : ${cart}">
+				<td align="center">
+					<a th:href="@{'/cart/remove/' + ${i.index}}">X</a>
+				</td>
+				<td th:text="${item.product.id}"></td>
+				<td th:text="${item.product.name}"></td>
+				<td>
+					<input type="number" name="quantities" min="1" th:value="${item.quantity}">
+				</td>
+				<td th:text="${item.product.price}"></td>
+				<td th:text="${item.product.category.name}"></td>
+				<td><img th:src="@{'/images/'+${item.product.photo}}" width="70" height="100"></img></td>
+				<td th:text="${item.product.price * item.quantity}"></td>
+			<tr>
+			<tr>
+				<th>Total</th>
+				<td th:text="${total}" colspan="7" align="right"></td>
+			</tr>
+		</table>
+	</form>
+	<th:block th:if="${cart != null && cart.size() > 0}">
+	<a th:href="@{'/cart/checkout'}">Check Out !</a>
+	</th:block>
+</body>
+
+</html>

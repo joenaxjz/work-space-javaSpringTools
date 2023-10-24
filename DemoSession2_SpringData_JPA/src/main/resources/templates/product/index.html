@@ -51,10 +51,12 @@
 			<td th:text="${product.price}"></td>
 			<td th:text="${#dates.format(product.created, 'dd/MM/yyyy')}"></td>
 			<td>
-				<a th:href="@{'/product/edit/' + ${product.id}}">Update</a>
+				<a th:href="@{'/product/edit/' + ${product.id}}">Update</a> | 
+				<a th:href="@{'/cart/addToCart/' + ${product.id}}">Add to cart</a>
+
 			</td>
 		<tr>
 		</tr>
 	</table>
-		<th:block th:text="${msg}"></th:block>
+	<th:block th:text="${msg}"></th:block>
 </body>
