@@ -1,0 +1,51 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Register</title>
+</head>
+
+<body>
+	<h1>Register Form</h1>
+	<th:block th:text="${msg}"></th:block>
+	<form method="post" th:href="@{/account/register}">
+		<table>
+			<tr>
+				<td>Username</td>
+				<td><input type="text" th:field="${account.username}"></td>
+			</tr>
+			<br>
+			<tr>
+				<td>Password</th>
+				<td><input type="password" th:field="${account.password}"></td>
+			</tr>
+			<br>
+			<tr>
+				<td>FullName</th>
+				<td><input type="text" th:field="${account.fullName}"></td>
+			</tr>
+			<br>
+			<tr>
+				<td>Email</th>
+				<td><input type="text" th:field="${account.email}"></td>
+			</tr>
+			<br>
+			<tr>
+				<td>Role</th>
+				<td>
+					<th:block th:each="role : ${roles}">
+						<input type="checkbox" th:value="${role.id}" th:field="${account.roles}">
+						 <th:block th:text="${role.name}"></th:block>
+						<br>
+					</th:block>
+				</td>
+			</tr>
+			<br>
+			<tr>
+				<td><input type="submit" value="Register"></td>
+			</tr>
+		</table>
+		<a th:href="@{/account/login}">Login Now !</a>
+	</form>
+</body>
+
+</html>

@@ -14,7 +14,6 @@ import org.springframework.stereotype.Service;
 import com.demo.entities.Account;
 import com.demo.entities.Role;
 import com.demo.repositories.AccountRepository;
-import com.demo.repositories.ProductRepository;
 
 @Service
 public class AccountServiceImpl implements AccountService{

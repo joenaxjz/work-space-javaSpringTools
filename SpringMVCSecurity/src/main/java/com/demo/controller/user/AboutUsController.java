@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-@RequestMapping({ "", "/aboutus", "/"})
+@RequestMapping({"/aboutus"})
 public class AboutUsController {
 
 	@RequestMapping(value = { "index", "" }, method = RequestMethod.GET)

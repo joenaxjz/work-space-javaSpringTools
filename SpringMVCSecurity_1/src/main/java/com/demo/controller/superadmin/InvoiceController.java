@@ -1,4 +1,4 @@
-package com.demo.controllers.employee;
+package com.demo.controller.superadmin;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -6,11 +6,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-@RequestMapping({ "employee/product"})
-public class ProductController1 {
-
-	@RequestMapping(value = { "index", "" }, method = RequestMethod.GET)
+@RequestMapping({"superadmin/invoice"})
+public class InvoiceController {
+	@RequestMapping(value = { "index","/","" }, method = RequestMethod.GET)
 	public String index(ModelMap modelMap) {
-		return "employee/product/index";
+		return "superadmin/invoice/index";
 	}
 }

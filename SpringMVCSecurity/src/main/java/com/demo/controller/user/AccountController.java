@@ -2,6 +2,7 @@ package com.demo.controller.user;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -46,8 +47,15 @@ public class AccountController {
 	}
 
 	@RequestMapping(value = { "success" }, method = RequestMethod.GET)
-	public String success(ModelMap modelMap) {
+	public String success(Authentication authentication) {
+		System.out.println("username: " + authentication.getName());
 		return "account/success";
+	}
+	
+	@RequestMapping(value = { "accessdenied" }, method = RequestMethod.GET)
+	public String accessdenied(Authentication authentication) {
+		
+		return "account/accessdenied";
 	}
 
 //	@RequestMapping(value = { "login" }, method = RequestMethod.POST)
@@ -135,21 +143,24 @@ public class AccountController {
 	}
 
 	@RequestMapping(value = { "profile" }, method = RequestMethod.GET)
-	public String profile(HttpSession session, ModelMap modelMap) {
-		String username = session.getAttribute("username").toString();
+	public String profile(Authentication authentication, HttpSession session, ModelMap modelMap) {
+		String username = authentication.getName();
 		modelMap.put("account", accountService.findByUsername(username));
 		modelMap.put("roles", roleService.findAll());
 		return "account/profile";
 	}
 
 	@RequestMapping(value = { "profile" }, method = RequestMethod.POST)
-	public String profile(@ModelAttribute("account") Account account, HttpSession session,
+	public String profile(@ModelAttribute("account") Account account, Authentication authentication,
 			RedirectAttributes redirectAttribute) {
-		Account currentAccount = accountService.findByUsername(account.getUsername());
+		Account currentAccount = accountService.findByUsername(authentication.getName());
 		account.setSecurityCode(currentAccount.getSecurityCode());
 		account.setStatus(currentAccount.isStatus());
 		if (account.getPassword().isEmpty()) {
 			account.setPassword(currentAccount.getPassword());
+		}
+		else {
+			account.setPassword(encoder.encode(account.getPassword()));
 		}
 		if (accountService.save(account)) {
 			redirectAttribute.addFlashAttribute("msg", "Updated");

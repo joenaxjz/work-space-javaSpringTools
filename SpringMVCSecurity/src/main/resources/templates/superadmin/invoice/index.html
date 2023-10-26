@@ -1,8 +1,9 @@
-<html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{layout/user :: content('Invoice Superadmin', ~{this :: h3 })}">
 	<head>
 		
 	</head>
 	<body>
-		<h1>Invoice Superadmin</h1>
+		<h3>Invoice Superadmin</h3>
+		<a th:href="@{/account/logout}">LOG OUT</a>
 	</body>
 </html>

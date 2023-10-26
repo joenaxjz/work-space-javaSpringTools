@@ -1,0 +1,51 @@
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+	th:fragment="content(title, mainContent)">
+
+<head>
+	<title th:text="${title}"></title>
+</head>
+
+<body>
+	<table border="1" width="800" align="center">
+		<tr>
+			<td colspan="2">
+				<th:block sec:authorize="isAuthenticated()">
+					Welcome <th:block sec:authentication="name"></th:block>
+					<br>
+					<a th:href="@{/account/logout}">Log out</a>
+					<a th:href="@{/account/profile}">Profile</a>
+				</th:block>
+				<th:block sec:authorize="!isAuthenticated()">
+					<a th:href="@{/account/login}">Log In</a> -
+					<a th:href="@{/account/register}">Register</a>
+				</th:block>
+			</td>
+		</tr>
+		<tr>
+			<td width="300" valign="top">
+				<ul>
+					<th:block sec:authorize="hasAnyRole('ROLE_super_admin')">
+						<li>
+							<a href="#">Invoice</a>
+						</li>
+					</th:block>
+					<th:block sec:authorize="hasAnyRole('ROLE_super_admin', 'ROLE_admin')">
+						<li>
+							<a href="#">Category</a>
+						</li>
+					</th:block>
+					<th:block sec:authorize="hasAnyRole('ROLE_super_admin', 'ROLE_admin', 'ROLE_emp')">
+						<li>
+							<a href="#">Product</a>
+						</li>
+					</th:block>
+				</ul>
+			</td>
+			<td width="500" valign="top">
+				<div th:replace="${mainContent}"></div>
+			</td>
+		</tr>
+	</table>
+</body>
+
+</html>
