@@ -45,9 +45,9 @@ public class SecurityConfiguration {
 							"/account/accessdenied",
 							"/account/success"
 							).permitAll()
-					.requestMatchers("/superadmin/**").hasAnyRole("super_admin") // các role sẽ được vào đường link
-					.requestMatchers("/admin/**").hasAnyRole("super_admin", "admin")
-					.requestMatchers("/employee/**", "/account/profile").hasAnyRole("super_admin", "admin", "emp");
+					.requestMatchers("/superadmin/**").hasAnyRole("SUPERADMIN") // các role sẽ được vào đường link
+					.requestMatchers("/admin/**").hasAnyRole("SUPERADMIN", "ADMIN")
+					.requestMatchers("/employee/**", "/account/profile").hasAnyRole("SUPERADMIN", "ADMIN", "EMP");
 				})
 				.formLogin(formLogin -> {
 					formLogin.loginPage("/account/login")
