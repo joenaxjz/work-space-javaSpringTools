@@ -12,5 +12,6 @@ public Iterable<Account> findAll();
 	public  Account find(int  id);
 	public Account findByUsername(String username);
 	public Account findByEmail(String email);
-
+	public boolean login2(String username, String password);
+	
 }

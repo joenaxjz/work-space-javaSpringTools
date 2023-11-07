@@ -1,0 +1,58 @@
+<html xmlns:th="http://www.thymeleaf.org" xmlns:mytag="http://www.mytag.com">
+
+<head>
+	<h3>demo 4 - index</h3>
+	<meta charset="UTF-8">
+</head>
+
+<body>
+	<a th:href="@{/demo4/index?lang=fr_FR}">
+		<img th:src="@{/images/france.png}" width="50px" height="50px">
+	</a>
+	<a th:href="@{/demo4/index?lang=ja_JP}">
+		<img th:src="@{/images/japan.png}" width="50px" height="50px">
+	</a>
+	<a th:href="@{/demo4/index?lang=en_US}">
+		<img th:src="@{/images/usa.png}" width="50px" height="50px">
+	</a>
+	<a th:href="@{/demo4/index?lang=vi_VN}">
+		<img th:src="@{/images/vn.png}" width="50px" height="50px">
+	</a>
+	
+	<br>
+	Price 1: <th:block th:text="${price1}"></th:block>
+	
+	<br>
+	Quantity 1: <th:block th:text="${quan1}"></th:block>
+	
+	<br>
+	Date 1: <th:block th:text="${date1}"></th:block>
+	
+	<br>
+	Message 1: <th:block th:text="${msg1}"></th:block>
+	
+	<br>
+	Message 2: <th:block th:text="${msg2}"></th:block>
+	
+	<h3>Locale Thymeleaf</h3>
+	Locale: <th:block th:text="${#locale}"></th:block>
+	
+	<br>
+	Price 2: <th:block th:text="${#numbers.formatCurrency(price2)}"></th:block>
+	
+	<br>
+	Price 3: <th:block th:text="${#numbers.formatDecimal(price3, 3, 2, 'DEFAULT')}"></th:block>
+	
+	<br>
+	Quantity 2: <th:block th:text="${#numbers.formatInteger(quan2, 3, 'DEFAULT')}"></th:block>
+	
+	<br>
+	Today: <th:block th:text="${#calendars.format(today)}"></th:block>
+	
+	<br>
+	Msg: <th:block th:text="#{msg}"></th:block>
+	
+	<br>
+	Msg2: <th:block th:text="#{msg2('ABC', 'DEF', 'SDD')}"></th:block>
+	
+</body>

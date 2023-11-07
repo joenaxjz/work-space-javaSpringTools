@@ -64,4 +64,9 @@ public class AccountServiceImpl implements AccountService {
 		return accountRepository.findByEmail(email);
 	}
 
+	@Override
+	public boolean login2(String username, String password) {
+		return username.equals("abc") && password.equals("123");
+	}
+
 }
