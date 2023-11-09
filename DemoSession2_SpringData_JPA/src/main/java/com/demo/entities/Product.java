@@ -24,7 +24,7 @@ public class Product implements java.io.Serializable {
 	private boolean status;
 	private String description;
 	private String photo;
-	
+	private Set<ProductLanguage> productLanguages = new HashSet<ProductLanguage>(0);
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private Date created;
 	
@@ -151,6 +151,15 @@ public class Product implements java.io.Serializable {
 
 	public void setInvoiceDetailses(Set<InvoiceDetails> invoiceDetailses) {
 		this.invoiceDetailses = invoiceDetailses;
+	}
+
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "product")
+	public Set<ProductLanguage> getProductLanguages() {
+		return this.productLanguages;
+	}
+
+	public void setProductLanguages(Set<ProductLanguage> productLanguages) {
+		this.productLanguages = productLanguages;
 	}
 
 }

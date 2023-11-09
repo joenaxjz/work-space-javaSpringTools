@@ -1,0 +1,56 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="utf-8">
+	<h3>Product List</h3>
+</head>
+
+<body>
+
+	<th:block th:each="lang : ${langs}">
+		<a th:href="@{'/demo5/index?lang='+${lang.languageId}+'_'+${lang.countryId}}">
+			<img th:src="@{'/images/'+${lang.flag}}" width="40" height="30"></img>
+		</a>
+	</th:block>
+
+	<table border="1">
+		<tr>
+			<th>
+				<th:block th:text="#{id}"></th:block>
+			</th>
+			<th><th:block th:text="#{name}"></th:block></th>
+			<th><th:block th:text="#{quantity}"></th:block></th>
+			<th><th:block th:text="#{status}"></th:block></th>
+			<th><th:block th:text="#{description}"></th:block></th>
+			<th><th:block th:text="#{category_name}"></th:block></th>
+			<th><th:block th:text="#{photo}"></th:block></th>
+			<th><th:block th:text="#{price}"></th:block></th>
+			<th><th:block th:text="#{created}"></th:block></th>
+
+		</tr>
+		<tr th:each="product : ${products}">
+
+			<td th:text="${product.id}"></td>
+			<td>
+				<th:block th:if="${@productLanguageService.find(product, #locale) != null}">
+					<th:block th:text="${@productLanguageService.find(product, #locale).name}">
+					</th:block>
+				</th:block>
+				<th:block th:if="${@productLanguageService.find(product, #locale) == null}">
+					<th:block th:text="${product.name}">
+					</th:block>
+				</th:block>
+			</td>
+			<td th:text="${#numbers.formatInteger(product.quantity, 3, 'DEFAULT')}"></td>
+			<td th:text="${product.status}"></td>
+			<td th:text="${product.description}"></td>
+			<td th:text="${product.category.name}"></td>
+			<td><img th:src="@{'/images/'+${product.photo}}" width="70" height="100"></img></td>
+			<td th:text="${#numbers.formatCurrency(product.price)}"></td>
+			<td th:text="${#dates.format(product.created, 'dd/MM/yyyy')}"></td>
+
+		<tr>
+		</tr>
+	</table>
+
+</body>
