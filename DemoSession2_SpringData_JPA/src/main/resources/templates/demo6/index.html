@@ -1,0 +1,56 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="utf-8">
+	<h3>Demo 6 - Index</h3>
+	<script th:src="@{/js/jquery-3.7.1.min.js}"></script>
+	<script>
+		$(document).ready(function () {
+			$('#btnFind').click(function () {
+				$.ajax({
+					type: 'GET',
+					url: '/ajax/find',
+					success: function (product) {
+						$('#id').html(product.id);
+						$('#name').html(product.name);
+						$('#price').html(product.price);
+						$('#status').html(product.status);
+						$('#photo').attr('src', product.photo);
+
+					}
+				})
+			});
+
+			$('#btnFind2').click(function () {
+				$.ajax({
+					type: 'GET',
+					url: '/ajax/find1',
+					success: function (invoice) {
+						$('#id1').html(invoice.id);
+						$('#name1').html(invoice.name);
+						$('#fn').html(invoice.fullName);
+					}
+				})
+			});
+
+		});
+	</script>
+</head>
+
+<body>
+	<h1>Button 1</h1>
+
+	<button id="btnFind">FIND</button>
+	<br>
+	id: <span id="id"></span>
+	<br>
+	name: <span id="name"></span>
+	<br>
+	price: <span id="price"></span>
+	<br>
+	Status: <span id="status"></span>
+	<br>
+	Image: <img src="" width="100" height="80" id="photo">
+
+
+</body>

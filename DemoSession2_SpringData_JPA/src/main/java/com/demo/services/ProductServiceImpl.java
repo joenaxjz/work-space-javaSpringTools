@@ -4,9 +4,15 @@ package com.demo.services;
 import java.util.Date;
 import java.util.List;
 
+import org.modelmapper.ModelMapper;
+import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import com.demo.dtos.ProductDTO;
 import com.demo.entities.Product;
 import com.demo.repositories.ProductRepository;
 
@@ -15,6 +21,9 @@ public class ProductServiceImpl implements ProductService {
 
 	@Autowired
 	private ProductRepository productRepo;
+	
+	@Autowired
+	private ModelMapper modelMapper;
 	
 	@Override
 	public Iterable<Product> findAll() {
@@ -165,6 +174,35 @@ public class ProductServiceImpl implements ProductService {
 	public List<Product> searchByKeyword(String keyword) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public ProductDTO find2(int id) {
+		// TODO Auto-generated method stub
+		return modelMapper.map(productRepo.findById(id).get(), ProductDTO.class);
+	}
+
+	@Override
+	public List<ProductDTO> findAll2() {
+		// TODO Auto-generated method stub
+		return modelMapper.map(productRepo.findAll(), new TypeToken<List<ProductDTO>>(){}.getType());
+	}
+
+	@Override
+	public List<String> findByKeywordAutoComplete(String keyword) {
+		return productRepo.findByKeywordAutoComplete(keyword);
+	}
+
+	@Override
+	public List<ProductDTO> findByKeywordDTO(String keyword) {
+		// TODO Auto-generated method stub
+		return modelMapper.map(productRepo.findByKeyword(keyword), new TypeToken<List<ProductDTO>>(){}.getType());
+	}
+
+	@Override
+	public Page<Product> findPagingnation(int pageNo, int pageSize) {
+			Pageable pageable = PageRequest.of(pageNo, pageSize);
+			return productRepo.findAll(pageable);
 	}
 
 

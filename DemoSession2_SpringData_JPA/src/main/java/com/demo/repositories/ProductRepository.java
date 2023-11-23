@@ -5,17 +5,17 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import com.demo.entities.Product;
 
 @Repository
-public interface ProductRepository extends CrudRepository<Product, Integer> {
+public interface ProductRepository extends PagingAndSortingRepository<Product, Integer>, CrudRepository <Product, Integer> {
 
 	@Query("from Product  where status = :status")
 	public List<Product> findByStatus(@Param("status") boolean status);
-	
 	
 	@Query("from Product  where price >= :min and price <= :max")
 	public List<Product> findByPrice(@Param("min") double min, @Param("max") double max);
@@ -67,6 +67,10 @@ public interface ProductRepository extends CrudRepository<Product, Integer> {
 	
 	@Query("select avg(price) from Product")
 	public double avgPrice();
+	
+	@Query("select name from Product where name  like %:keyword% ")
+	public List<String> findByKeywordAutoComplete(@Param("keyword") String name);
+	
 	
 }
 

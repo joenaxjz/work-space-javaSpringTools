@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -43,6 +44,9 @@ public class CartController {
 	
 	@Autowired
 	private InvoiceDetailService invoiceDetailsService;
+	
+	@Autowired
+	private Environment enviroment;
 
 	@RequestMapping(value = { "index" }, method = RequestMethod.GET)
 	public String login(ModelMap modelMap, HttpSession session) {
@@ -50,8 +54,18 @@ public class CartController {
 			List<Item> cart = (List<Item>) session.getAttribute("cart");
 			modelMap.put("cart", cart);
 			modelMap.put("total", cartService.total(cart));
+			modelMap.put("postUrl", enviroment.getProperty("paypal.posturl"));
+			modelMap.put("returnUrl", enviroment.getProperty("paypal.returnurl"));
+			modelMap.put("business", enviroment.getProperty("paypal.business"));
+
 		}
 		return "cart/index";
+	}
+	
+	@RequestMapping(value = { "success" }, method = RequestMethod.GET)
+	public String success(ModelMap modelMap, HttpSession session) {
+		
+		return "cart/success";
 	}
 
 	@RequestMapping(value = { "addToCart/{id}" }, method = RequestMethod.GET)

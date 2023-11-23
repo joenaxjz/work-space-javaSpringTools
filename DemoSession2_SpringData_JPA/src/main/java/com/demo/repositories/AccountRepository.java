@@ -22,6 +22,9 @@ public interface AccountRepository extends CrudRepository<Account, Integer> {
 	
 	@Query("from Account  where email = :email")
 	public Account findByEmail(@Param("email") String email);
+	
+	@Query("from Account  where day(dob) = :day and month(dob) = :month")
+	public List<Account> findByMonthAndDay(@Param("day") int day, @Param("month") int month);
 }
 
 

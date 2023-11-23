@@ -1,0 +1,51 @@
+<html xmlns:th="http://www.thymeleaf.org" th:replace="layout/employee :: mainContent('Dashboard', ~{this :: .content-wrapper})" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+<title></title>
+</head>
+<body>
+
+	<div class="content-wrapper">
+
+		<!-- Content Header (Page header) -->
+		<div class="content-header">
+			<div class="container-fluid">
+				<div class="row mb-2">
+					<div class="col-sm-6">
+					   <a th:href="@{'/employee/profile/index/'+${nhanvien.username}}">
+						<h1 class="m-0">My Profile</h1>
+						</a>
+					</div>
+				</div>
+				<!-- /.row -->
+			</div>
+			<!-- /.container-fluid -->
+		</div>
+		<!-- /.content-header -->
+
+		<!-- Main content -->
+		<section class="content">
+			<div class="container-fluid">
+				<!-- Small boxes (Stat box) -->
+				<div class="row">
+					<div class="col-lg-3 col-6">
+						<!-- small box -->
+						<div class="small-box bg-info">
+							<div class="inner">
+								<h3>My Requests</h3>
+						<a th:href="@{'/employee/requestList/index/'+${nhanvien.username}}" class="small-box-footer">
+								<p>Read more</p>
+							</div>
+						More info <i
+								class="fas fa-arrow-circle-right"></i></a>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+		</section>
+		<!-- /.content -->
+
+	</div>
+
+</body>
+</html>

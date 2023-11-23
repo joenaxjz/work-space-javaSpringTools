@@ -8,7 +8,9 @@ import java.nio.file.StandardCopyOption;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.core.io.ClassPathResource;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -34,12 +36,26 @@ public class ProductController {
 	private ProductService productService;
 
 	@Autowired
+	private Environment environment;
+	
+	@Autowired
 	private CategoryService categoryService;
 
 	@RequestMapping(value = { "index" }, method = RequestMethod.GET)
 	public String index(ModelMap modelMap) {
 		modelMap.put("products", productService.findAll());
 		return "product/index";
+	}
+	
+	@RequestMapping(value = { "index2" }, method = RequestMethod.GET)
+	public String index2(@RequestParam(value = "pageNo", defaultValue = "1") int pageNo,ModelMap modelMap) {
+		int pageSize = Integer.parseInt(environment.getProperty("pageSize"));
+		Page<Product> page = productService.findPagingnation(pageNo, pageSize);
+		modelMap.put("currentPage", pageNo);
+		modelMap.put("totalPages", page.getTotalPages());
+		modelMap.put("totalItems", page.getTotalElements());
+		modelMap.put("products", page.getContent());
+		return "product/index2";
 	}
 
 	@RequestMapping(value = { "add" }, method = RequestMethod.POST)

@@ -1,5 +1,7 @@
 package com.demo.services;
 
+import java.util.List;
+
 import com.demo.entities.Account;
 import com.demo.entities.Category;
 
@@ -13,5 +15,7 @@ public Iterable<Account> findAll();
 	public Account findByUsername(String username);
 	public Account findByEmail(String email);
 	public boolean login2(String username, String password);
+	public List<Account> findByDob(); 
+	
 	
 }

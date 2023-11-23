@@ -3,6 +3,9 @@ package com.demo.services;
 import java.util.Date;
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+
+import com.demo.dtos.ProductDTO;
 import com.demo.entities.Product;
 
 public interface ProductService {
@@ -55,5 +58,13 @@ public interface ProductService {
 	
 	public List<Product> searchByKeyword(String keyword);
 
+	public ProductDTO find2(int id);
 
+	public List<ProductDTO> findAll2();
+	
+	public List<String> findByKeywordAutoComplete(String keyword);
+	
+	public List<ProductDTO> findByKeywordDTO(String keyword);
+	
+	public Page<Product> findPagingnation(int pageNo, int pageSize);
 }

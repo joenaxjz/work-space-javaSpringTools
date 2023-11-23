@@ -1,0 +1,33 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="utf-8">
+	<h3>Demo 6 - Index 2</h3>
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+	<script th:src="@{/js/jquery-3.7.1.min.js}"></script>
+	<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+	<script>
+		$(function () {
+			$("#keyword").autocomplete({
+				source: "/ajax/autoComplete"
+			});
+
+			$("#keyword2").autocomplete({
+				source: "/ajax/customAutoComplete"
+			})
+				.autocomplete("instance")._renderItem = function (ul, item) {
+					return $("<li>")
+						.append('<img src="' + item.photo + '"width="20px" heigth="30px"> | ' + item.name + '|' + item.price)
+						.appendTo(ul);
+				};;
+
+
+		});
+	</script>
+</head>
+
+<body>
+	<input type="text" id="keyword">
+	<br><br>
+	<input type="text" id="keyword2">
+</body>

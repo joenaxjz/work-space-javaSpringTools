@@ -1,0 +1,110 @@
+<html xmlns:th="http://www.thymeleaf.org" th:replace="layout/admin :: mainContent('CreateAccount', ~{this ::  .content-wrapper})" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AdminLTE 3 | Log in</title>
+
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" th:href="@{/assets/admin/plugins/fontawesome-free/css/all.min.css}">
+  <!-- icheck bootstrap -->
+  <link rel="stylesheet" th:href="@{/assets/admin/plugins/icheck-bootstrap/icheck-bootstrap.min.css}">
+  <!-- Theme style -->
+  <link rel="stylesheet" th:href="@{/assets/admin/dist/css/adminlte.min.css}">
+</head>
+
+<body>
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>General Form</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">General Form</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <!-- left column -->
+          <div class="col-md-6">
+            <!-- general form elements -->
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">Quick Example</h3>
+              </div>
+              <!-- /.card-header -->
+              <!-- form start -->
+              <form method="post" th:action="@{/admin/employee/createAccount}">
+                <div class="card-body">
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Username</label>
+                    <input type="text" class="form-control" th:field="${nhanvien.username}" placeholder="Enter username">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input type="password" class="form-control" th:field="${nhanvien.password}" placeholder="Enter Password">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Ho Ten</label>
+                    <input type="text" class="form-control" th:field="${nhanvien.hoten}" placeholder="Enter Full Name">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Ngay Sinh</label>
+                    <input type="date" class="form-control" th:field="${nhanvien.ngaysinh}" placeholder="Enter DoB">
+                  </div>
+                     <div class="form-group">
+                     <label>Role</label>
+                     <select class="form-select" aria-label="Default select example" th:field="${nhanvien.quyen}">
+				<th:block th:each="role : ${roles}">
+					<option th:value="${role.marole}" th:text="${role.tenrole}"></option>
+				</th:block>
+				
+			</select>
+                     
+				</th:block>
+                     </div>
+
+                </div>
+                <!-- /.card-body -->
+
+                <div class="card-footer">
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+                <th:block th:text="${msg}"></th:block>
+              </form>
+            </div>
+            <!-- /.card -->
+          </div>
+
+          <!--/.col (right) -->
+        </div>
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+
+
+<!-- jQuery -->
+<script th:src="@{/assets/admin/plugins/jquery/jquery.min.js}"></script>
+<!-- Bootstrap 4 -->
+<script th:src="@{/assets/admin/plugins/bootstrap/js/bootstrap.bundle.min.js}"></script>
+<!-- AdminLTE App -->
+<script th:src="@{/assets/admin/dist/js/adminlte.min.js}"></script>
+</body>
+
+</html>

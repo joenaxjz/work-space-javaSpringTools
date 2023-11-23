@@ -46,6 +46,23 @@
 	</form>
 	<th:block th:if="${cart != null && cart.size() > 0}">
 	<a th:href="@{'/cart/checkout'}">Check Out !</a>
+	<form method="post" th:action="${postUrl}">
+		
+		<input type="hidden" name="upload" value="1" /> 
+		<input type="hidden" name="return" th:value="${returnUrl}" /> 
+		<input type="hidden" name="cmd" value="_cart" /> 
+		<input type="hidden" name="business" th:value="${business}" />
+	
+		<th:block th:each="item, i : ${cart}">
+			<input type="hidden" th:name="${'item_number_' + (i.index + 1)}" th:value="${item.product.id}">
+			<input type="hidden" th:name="${'item_name_' + (i.index + 1)}" th:value="${item.product.name}">
+			<input type="hidden" th:name="${'amount_' + (i.index + 1)}" th:value="${item.product.price}">
+			<input type="hidden" th:name="${'quantity_' + (i.index + 1)}" th:value="${item.product.quantity}">
+			
+		</th:block>
+	
+		<button type="submit">Paypal</button>
+	</form>
 	</th:block>
 </body>
 

@@ -1,0 +1,87 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Edit Request</title>
+
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" th:href="@{/assets/admin/plugins/fontawesome-free/css/all.min.css}">
+  <!-- icheck bootstrap -->
+  <link rel="stylesheet" th:href="@{/assets/admin/plugins/icheck-bootstrap/icheck-bootstrap.min.css}">
+  <!-- Theme style -->
+  <link rel="stylesheet" th:href="@{/assets/admin/dist/css/adminlte.min.css}">
+  
+   <script>
+  $( function() {
+    $( "#ngaygui" ).datepicker({
+    	dateFormat: 'dd/mm/yy'
+    });
+  } );
+  </script>
+ 
+</head>
+
+<body>
+	<a th:href="@{/admin/requests/index}">Back To Request List</a>
+
+              <form method="post" th:action="@{/requestEmployee/edit}">
+                <div class="card-body">
+                  <div class="form-group">
+                    <input type="hidden" class="form-control" th:field="${request.douutien.madouutien}">
+                  </div>
+                  <div class="form-group">
+                    <input type="hidden" class="form-control" th:field="${request.tieude}">
+                  </div>
+                  <div class="form-group">
+                  <input type="hidden" class="form-control" th:field="${request.noidung}">
+                  </div>
+                  <div class="form-group">
+                    <input type="hidden" class="form-control" th:field="${request.nhanvienByManvGui}">
+                  </div>
+                     <div class="form-group">
+                     <label>Chon nhan vien xu ly</label>
+                     <br>
+                     <select class="form-select" aria-label="Default select example" th:field="${request.nhanvienByManvXuly}">
+					<option th:each="nhanvien : ${nhanviens}" th:value="${nhanvien.username}" th:text="${nhanvien.hoten}" class="form-option"></option>				
+			</select>
+                     
+				</th:block>
+                     </div>
+
+                </div>
+                <!-- /.card-body -->
+
+                <div class="card-footer">
+                  <button type="submit" class="btn btn-primary">SAVE</button>
+                  <input type="hidden" th:field="${request.mayeucau}">
+                </div>
+                <th:block th:text="${msg}"></th:block>
+              </form>
+            </div>
+            <!-- /.card -->
+          </div>
+        </div>
+        
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+
+<!-- jQuery -->
+<script th:src="@{/assets/admin/plugins/jquery/jquery.min.js}"></script>
+<script th:src="@{/assets/admin/js/jquery-3.7.1.min.js}"></script>
+
+<!-- Bootstrap 4 -->
+<script th:src="@{/assets/admin/plugins/bootstrap/js/bootstrap.bundle.min.js}"></script>
+<!-- AdminLTE App -->
+<script th:src="@{/assets/admin/dist/js/adminlte.min.js}"></script>
+
+
+</body>
+
+</html>

@@ -1,5 +1,9 @@
 package com.demo.services;
 
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -67,6 +71,16 @@ public class AccountServiceImpl implements AccountService {
 	@Override
 	public boolean login2(String username, String password) {
 		return username.equals("abc") && password.equals("123");
+	}
+
+	@Override
+	public List<Account> findByDob() {
+		Date today = new Date();
+		Calendar calendar = Calendar.getInstance();
+		calendar.setTime(today);
+		int day = calendar.get(Calendar.DAY_OF_MONTH);
+		int month = calendar.get(Calendar.MONTH) + 1;
+		return accountRepository.findByMonthAndDay(day, month);
 	}
 
 }

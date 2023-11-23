@@ -1,0 +1,32 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+</head>
+<h1>Login</h1>
+<th:block th:text="${msg}"></th:block>
+
+<form method="post" th:action="@{/account/process-login}">
+	<table>
+		<tr>
+			<th>Username</th>
+			<td>
+				<input type="text" name="username">
+			</td>
+		</tr>
+		<tr>
+			<th>Password</th>
+			<td>
+				<input type="password" name="password">
+			</td>
+		</tr>
+		<tr>
+			<th>&nbsp;</th>
+			<td>
+				<input type="submit" value="LOGIN">
+			</td>
+		</tr>
+	</table>
+</form>
+<a th:href="@{/account/register}">Register</a> |
+<a th:href="@{/account/forgetPassword}">Forget Password</a>

@@ -1,0 +1,63 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="utf-8">
+	<h3>Demo 6 - Index 2</h3>
+	<script th:src="@{/js/jquery-3.7.1.min.js}"></script>
+	<script>
+		$(document).ready(function () {
+			$('#button').click(function () {
+				$.ajax({
+					type: 'GET',
+					url: '/ajax/findAll',
+					success: function (products) {
+						fiilDataToTable(products);
+					}
+				})
+			});
+
+			function fiilDataToTable(products) {
+				var s = '';
+				for (var i = 0; i < products.length; i++) {
+					s += '<tr>';
+					s += '<td>' + products[i].id + '</td>';
+					s += '<td>' + products[i].name + '</td>';
+					s += '<td>' + products[i].price + '</td>';
+					s += '<td>' + products[i].quantity + '</td>';
+					s += '<td>' + products[i].status + '</td>';
+					s += '<td><img src="' + products[i].photo + '"width="70px" heigth="80"></td>';
+					s += '<td>' + products[i].created + '</td>';
+					s += '<td>' + products[i].categoryId + '</td>';
+					s += '<td>' + products[i].categoryName + '</td>';
+					s += "</tr>";
+				}
+				$('#tableProduct tbody').html(s);
+			}
+
+		});
+	</script>
+</head>
+
+<body>
+
+	<button id="button">CLICK</button>
+
+	<table id="tableProduct" border="1">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Name</th>
+				<th>Price</th>
+				<th>Quantity</th>
+				<th>Status</th>
+				<th>Photo</th>
+				<th>Created</th>
+				<th>Category Id</th>
+				<th>Category Name</th>
+			</tr>
+		</thead>
+		<tbody></tbody>
+
+	</table>
+
+</body>

@@ -1,0 +1,71 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AdminLTE 3 | Log in</title>
+
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" th:href="@{/assets/admin/plugins/fontawesome-free/css/all.min.css}">
+  <!-- icheck bootstrap -->
+  <link rel="stylesheet" th:href="@{/assets/admin/plugins/icheck-bootstrap/icheck-bootstrap.min.css}">
+  <!-- Theme style -->
+  <link rel="stylesheet" th:href="@{/assets/admin/dist/css/adminlte.min.css}">
+</head>
+
+<body>
+	<a th:href="@{/admin/employee/list}">Back To Employee List</a>
+
+              <!-- /.card-header -->
+              <div class="card-body table-responsive p-0">
+                <table class="table table-hover text-nowrap">
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Tieu De</th>
+                      <th>Noi Dung</th>
+                      <th>Ngay Gui</th>
+                      <th>Do Uu Tien</th>
+                      <th>Nhan Vien Gui</th>
+                      <th>Nhan Vien Xu Ly</th>
+                    </tr>
+                  </thead>
+                  <th:block th:each="request : ${requests}">
+                  <tbody>
+                    <tr>
+                      <td th:text="${request.mayeucau}"></td>
+                      <td th:text="${request.tieude}"></td>
+                      <td th:text="${request.noidung}"></td>                                            
+                      <td th:text="${#dates.format(request.ngaygui, 'dd/MM/yyyy')}"></td>
+                      <td th:text="${request.douutien.tendouutien}"></td>
+                      <td th:text="${request.nhanvienByManvGui.username}"></td>
+					  <td th:text="${request.nhanvienByManvXuly.username}"></td>
+                    </tr>
+                  </tbody>
+                  </th:block>
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+        </div>
+        
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+
+<!-- jQuery -->
+<script th:src="@{/assets/admin/plugins/jquery/jquery.min.js}"></script>
+<!-- Bootstrap 4 -->
+<script th:src="@{/assets/admin/plugins/bootstrap/js/bootstrap.bundle.min.js}"></script>
+<!-- AdminLTE App -->
+<script th:src="@{/assets/admin/dist/js/adminlte.min.js}"></script>
+</body>
+
+</html>

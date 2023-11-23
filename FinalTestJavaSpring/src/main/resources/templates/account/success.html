@@ -1,0 +1,13 @@
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" th:replace="~{layout/user :: content('success', ~{this :: h1 })}">
+
+<head>
+	success
+</head>
+
+<body>
+	<th:block th:text="${msg}"></th:block>
+	<h1>Hello <th:block sec:authentication="name"></th:block></h1>
+	<a th:href="@{/account/profile}">Profile</a>
+	<br>
+	<a th:href="@{/account/logout}">LOG OUT</a>
+</body>

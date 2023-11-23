@@ -1,6 +1,7 @@
 package com.demo.entities;
 // Generated Aug 18, 2023, 2:33:02 PM by Hibernate Tools 4.3.6.Final
 
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -18,6 +19,7 @@ public class Account implements java.io.Serializable {
 	private String password;
 	private String fullName;
 	private String email;
+	private Date dob;
 	private boolean status;
 	private String securityCode; 
 	private Set<Role> roles = new HashSet<Role>(0);
@@ -30,6 +32,16 @@ public class Account implements java.io.Serializable {
 
 	public void setSecurityCode(String securityCode) {
 		this.securityCode = securityCode;
+	}
+
+	@Temporal(TemporalType.DATE)
+	@Column(name = "dob", nullable = false, length = 10)
+	public Date getDob() {
+		return dob;
+	}
+
+	public void setDob(Date dob) {
+		this.dob = dob;
 	}
 
 	public Account() {
@@ -56,7 +68,6 @@ public class Account implements java.io.Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-
 	@Column(name = "id", unique = true, nullable = false)
 	public Integer getId() {
 		return this.id;

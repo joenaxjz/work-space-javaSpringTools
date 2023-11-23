@@ -43,7 +43,16 @@
 			</td>
 			<td th:text="${#numbers.formatInteger(product.quantity, 3, 'DEFAULT')}"></td>
 			<td th:text="${product.status}"></td>
-			<td th:text="${product.description}"></td>
+			<td>
+				<th:block th:if="${@productLanguageService.find(product, #locale) != null}">
+					<th:block th:text="${@productLanguageService.find(product, #locale).description}">
+					</th:block>
+				</th:block>
+				<th:block th:if="${@productLanguageService.find(product, #locale) == null}">
+					<th:block th:text="${product.description}">
+					</th:block>
+				</th:block>
+			</td>
 			<td th:text="${product.category.name}"></td>
 			<td><img th:src="@{'/images/'+${product.photo}}" width="70" height="100"></img></td>
 			<td th:text="${#numbers.formatCurrency(product.price)}"></td>
